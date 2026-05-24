@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<!--
+  Garvika Bansal — personal site
+  Single-page static · Space Mono · light/dark · GitHub Pages
+  Sections:  00 INDEX · 01 WORK · 02 EDUCATION · 03 SAAJA FOODS · 04 MOUNTAINS · 05 CONTACT
+  Edit any text below. Pencil-icon edits on GitHub auto-redeploy in ~30 seconds.
+-->
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Garvika Bansal — Founder, Saaja Foods. E-commerce operator. Mountaineer.</title>
+  <meta name="description" content="Garvika Bansal — founder of Saaja Foods, e-commerce operator (Meesho, udaan), IIM Raipur '20, BTech Manipal '17. Mountaineer and travel enthusiast.">
+
+  <meta name="theme-color" content="#f3f1ea" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e1310" media="(prefers-color-scheme: dark)">
+
+  <meta property="og:title" content="Garvika Bansal">
+  <meta property="og:description" content="Founder, Saaja Foods. E-commerce operator. Mountaineer.">
+  <meta property="og:type" content="profile">
+  <meta property="og:image" content="assets/headshot.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap">
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('garvika-theme');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch(e) {}
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- BOOT SCREEN -->
+  <div id="boot" aria-hidden="true">
+    <div class="boot-grid" aria-hidden="true"></div>
+    <div class="boot-scanline" aria-hidden="true"></div>
+    <div class="boot-inner">
+      <div class="boot-stamp">★ NOW BOOTING ★</div>
+      <div class="boot-monogram" data-text="GARVIKA.BANSAL">GARVIKA.BANSAL</div>
+      <div class="boot-tagline">/ <span class="boot-tagline-rotate" id="boot-tagline-rotate">UNPACKING SHIPMENTS</span> /</div>
+      <div class="boot-bar"><div class="boot-bar-fill" id="boot-fill"></div></div>
+      <ul class="boot-log" id="boot-log" aria-hidden="true"></ul>
+      <div class="boot-hint">PRESS <kbd>?</kbd> AFTER BOOT FOR SHORTCUTS</div>
+    </div>
+  </div>
+
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div id="cursor-dot" aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"></div>
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>★ FOUNDER · SAAJA FOODS · LIVE ON AMAZON</span><span>★ MANAGER @ MEESHO · BENGALURU</span><span>★ EX-UDAAN · 3 YEARS · CATEGORY &amp; VENDOR MANAGEMENT</span><span>★ MBA · IIM RAIPUR · 2020</span><span>★ EXCHANGE · IÉSEG · LILLE · FRANCE</span><span>★ B.TECH · MANIPAL UNIVERSITY JAIPUR · 2017</span><span>★ ~500 CUSTOMERS · FSSAI-CERTIFIED · 4 SKUs LIVE</span><span>★ MOUNTAINEER · TREKKING · TRAVEL ENTHUSIAST</span><span>★ CO-FOUNDER · BIMI</span>
+      <span>★ FOUNDER · SAAJA FOODS · LIVE ON AMAZON</span><span>★ MANAGER @ MEESHO · BENGALURU</span><span>★ EX-UDAAN · 3 YEARS · CATEGORY &amp; VENDOR MANAGEMENT</span><span>★ MBA · IIM RAIPUR · 2020</span><span>★ EXCHANGE · IÉSEG · LILLE · FRANCE</span><span>★ B.TECH · MANIPAL UNIVERSITY JAIPUR · 2017</span><span>★ ~500 CUSTOMERS · FSSAI-CERTIFIED · 4 SKUs LIVE</span><span>★ MOUNTAINEER · TREKKING · TRAVEL ENTHUSIAST</span><span>★ CO-FOUNDER · BIMI</span>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-row">
+      <a href="#" class="brand">
+        <span class="brand-dot"></span>
+        <span>garvika.bansal</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#work">01 / Work</a>
+        <a href="#edu">02 / Education</a>
+        <a href="#saaja">03 / Saaja Foods</a>
+        <a href="#mountains">04 / Mountains</a>
+        <a href="#contact">05 / Contact</a>
+      </nav>
+      <div class="header-meta">
+        <span class="status"><span class="status-dot"></span> AVAILABLE</span>
+        <span id="clock" class="clock" aria-live="off">--:-- IST</span>
+        <button id="theme-toggle" class="icon-btn magnetic" aria-label="Toggle theme" title="Toggle theme (T)">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+              <line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/>
+              <line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/>
+              <line x1="4.2" y1="4.2" x2="6.3" y2="6.3"/><line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/>
+              <line x1="4.2" y1="19.8" x2="6.3" y2="17.7"/><line x1="17.7" y1="6.3" x2="19.8" y2="4.2"/>
+            </g>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         00 — HERO
+         ============================================================ -->
+    <section id="index" class="section section-hero">
+      <div class="container">
+        <div class="section-label"><span>00</span><span class="line"></span><span>INDEX</span></div>
+
+        <div class="hero-grid">
+          <div class="hero-text">
+            <h1 class="hero-h1">
+              <span class="reveal-line">Garvika Bansal.</span>
+              <span class="reveal-line">Founder of Saaja Foods.</span>
+              <span class="reveal-line">E-commerce operator at scale.</span>
+              <span class="reveal-line muted-h1">Mountaineer.<span class="cursor-blink">_</span></span>
+            </h1>
+
+            <p class="hero-tagline reveal">
+              Currently a Manager at Meesho. Before that, 3 years at udaan running category and vendor
+              management for the staples business. I founded Saaja Foods on the side — a D2C nut-butter brand
+              now live on Amazon. MBA from IIM Raipur (with a semester at IÉSEG in Lille, France); BTech from
+              Manipal University Jaipur. Outside work I'm in the mountains.
+            </p>
+
+            <div class="hero-actions reveal">
+              <a href="#saaja" class="btn magnetic">→ See Saaja Foods</a>
+              <a href="#contact" class="btn btn-ghost magnetic">→ Get in touch</a>
+            </div>
+          </div>
+
+          <div class="hero-photo reveal">
+            <div class="photo-frame">
+              <img src="assets/headshot.jpg" alt="Portrait of Garvika Bansal" loading="eager">
+              <div class="photo-meta">
+                <span>GARVIKA.BANSAL / 2026</span>
+                <span>★ FILE 01/—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stat counters -->
+        <div class="stat-grid reveal" data-counters>
+          <div class="stat">
+            <div class="stat-num"><span class="counter" data-to="6">0</span><span class="stat-unit">yrs</span></div>
+            <div class="stat-label">in e-commerce ops</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num"><span class="counter" data-to="500">0</span><span class="stat-unit">+</span></div>
+            <div class="stat-label">Saaja customers</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num"><span class="counter" data-to="4">0</span></div>
+            <div class="stat-label">SKUs live on Amazon</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num"><span class="counter" data-to="3">0</span></div>
+            <div class="stat-label">marketplaces (live + WIP)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         01 — WORK
+         ============================================================ -->
+    <section id="work" class="section">
+      <div class="container">
+        <div class="section-label reveal"><span>01</span><span class="line"></span><span>WORK</span></div>
+        <h2 class="section-h2 reveal">E-commerce operations at scale</h2>
+
+        <div class="prose reveal">
+          <p class="lead">
+            Six years across two of India's largest e-commerce platforms — running category &amp; vendor management,
+            program management, and now general management.
+          </p>
+        </div>
+
+        <ul class="role-list">
+
+          <li class="role reveal">
+            <div class="role-head">
+              <h3><span class="brand-logo brand-logo-sm"><img src="assets/logos/meesho.png" alt="Meesho" loading="lazy"></span>Manager <span class="muted role-level">/ Meesho</span></h3>
+              <span class="role-when">Sep 2023 → Present · Bengaluru</span>
+            </div>
+            <p class="role-summary">
+              <em>(Detail to be added — Garvika will share specifics tomorrow.)</em>
+              General management role across Meesho's category operations.
+            </p>
+            <ul class="card-tags">
+              <li>E-commerce</li><li>Category management</li><li>Cross-functional</li>
+            </ul>
+          </li>
+
+          <li class="role reveal">
+            <div class="role-head">
+              <h3><span class="brand-logo brand-logo-sm"><img src="assets/logos/udaan.png" alt="udaan.com" loading="lazy"></span>Category &amp; Vendor Management <span class="muted role-level">/ udaan</span></h3>
+              <span class="role-when">Aug 2020 → Jul 2023 · 3 yrs · Bengaluru</span>
+            </div>
+            <p class="role-summary">
+              Joined udaan as Vendor Management &amp; Category Lead (Aug 2020 – Oct 2022), then promoted to
+              Category Program Manager — Staples (Oct 2022 – Jul 2023). Ran category strategy, sourcing,
+              and vendor operations for one of India's largest B2B e-commerce platforms.
+            </p>
+            <ul class="role-outcomes">
+              <li><em>(Detail to be added — outcomes &amp; metrics from Garvika tomorrow.)</em></li>
+            </ul>
+            <ul class="card-tags">
+              <li>B2B</li><li>Staples</li><li>Vendor management</li><li>Category strategy</li><li>Supply chain</li>
+            </ul>
+          </li>
+
+          <li class="role reveal">
+            <div class="role-head">
+              <h3>Executive Member, Corporate Relations <span class="muted role-level">/ IIM Raipur</span></h3>
+              <span class="role-when">Jul 2018 → Apr 2020 · Raipur</span>
+            </div>
+            <p class="role-summary">
+              MBA leadership role. Acted as Protocol Officer and single point-of-contact for corporate delegates
+              during industry interactions (incl. HR Summit 2018). Organised campus engagement and institution
+              branding (Leadership Talks, Summits, Corporate Competitions, Workshops, Live Projects). Facilitated
+              Summer Internship and Final Placement processes.
+            </p>
+          </li>
+
+        </ul>
+
+        <h3 class="sub-h3 reveal">Earlier internships</h3>
+        <ul class="early-list reveal">
+          <li>
+            <div class="early-when">May 2019 – Jun 2019</div>
+            <div class="early-what">
+              <strong>Hero MotoCorp Ltd</strong> — Management Trainee, New Delhi
+            </div>
+          </li>
+          <li>
+            <div class="early-when">Jan 2017 – May 2017</div>
+            <div class="early-what">
+              <strong>ANDRITZ HYDRO Pvt. Ltd.</strong> — Internship, Bhopal
+              <p>Automation Technology department — control and automation of hydro-power-plant equipment. SCADA and panel assembly; hands-on testing.</p>
+            </div>
+          </li>
+          <li>
+            <div class="early-when">Feb 2017 – Mar 2017</div>
+            <div class="early-what">
+              <strong>India Smart Grid Forum (ISGF)</strong> — Internship, New Delhi
+              <p>Helped organise Indian Smart Grid Week 2017; handled international speakers and delegates; scheduled the event calendar and itinerary.</p>
+            </div>
+          </li>
+          <li>
+            <div class="early-when">Jun 2016 – Jul 2016</div>
+            <div class="early-what">
+              <strong>Pioneer Pollution Control &amp; Air System Pvt. Ltd.</strong> — Designing &amp; Manufacturing of MCC Panels, Bhopal
+              <p>Manufacturing and fabrication process of P&amp;V systems; supervised P&amp;V system installation; material procurement.</p>
+            </div>
+          </li>
+          <li>
+            <div class="early-when">Jun 2015 – Jul 2015</div>
+            <div class="early-what">
+              <strong>INDEYES INFOTECH Pvt. Ltd.</strong> — Embedded System Designing
+              <p>Coded Atmega microcontrollers; designed PCB.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         02 — EDUCATION
+         ============================================================ -->
+    <section id="edu" class="section section-alt">
+      <div class="container">
+        <div class="section-label reveal"><span>02</span><span class="line"></span><span>EDUCATION</span></div>
+        <h2 class="section-h2 reveal">Where I trained</h2>
+
+        <article class="card reveal">
+          <div class="role-head">
+            <h3><span class="brand-logo brand-logo-md"><img src="assets/logos/iim-raipur.png" alt="IIM Raipur" loading="lazy"></span>Indian Institute of Management, Raipur <span class="muted role-level">/ IIM Raipur</span></h3>
+            <span class="role-when">2018 → 2020 · Raipur</span>
+          </div>
+          <p class="role-summary">
+            Master of Business Administration. Executive Member, Corporate Relations team — protocol &amp;
+            industry engagement, placements, campus brand-building.
+          </p>
+        </article>
+
+        <article class="card reveal">
+          <div class="role-head">
+            <h3><span class="brand-logo brand-logo-md"><img src="assets/logos/ieseg.svg" alt="IÉSEG School of Management" loading="lazy"></span>IÉSEG School of Management <span class="muted role-level">/ Exchange Semester</span></h3>
+            <span class="role-when">2019 · Lille, France</span>
+          </div>
+          <p class="role-summary">
+            Final MBA semester as an exchange student — focus on marketing &amp; strategy.
+          </p>
+        </article>
+
+        <article class="card reveal">
+          <div class="role-head">
+            <h3><span class="brand-logo brand-logo-md"><img src="assets/logos/manipal-jaipur.png" alt="Manipal University Jaipur" loading="lazy"></span>Manipal University Jaipur <span class="muted role-level">/ Engineering</span></h3>
+            <span class="role-when">2013 → 2017 · Jaipur</span>
+          </div>
+          <p class="role-summary">
+            Engineer's Degree.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         03 — SAAJA FOODS
+         ============================================================ -->
+    <section id="saaja" class="section">
+      <div class="container">
+        <div class="section-label reveal"><span>03</span><span class="line"></span><span>SAAJA FOODS</span></div>
+        <h2 class="section-h2 reveal"><span class="brand-logo"><img src="assets/logos/saaja.svg" alt="Saaja Foods" loading="lazy"></span>The D2C brand I founded</h2>
+
+        <div class="prose reveal">
+          <p class="lead">
+            100% pure nut butters. No palm oil, no sugar, no additives. Small-batch roasted and slow-ground fresh.
+          </p>
+          <p>
+            Saaja Foods is my live D2C food company — proprietorship under GoodMatters Enterprises. I run sourcing,
+            small-batch roasting, slow grinding, packaging, FSSAI compliance, brand, and customer relationships.
+            My cofounder <strong>Anjan</strong> built the entire tech stack — site, cart, payments, Amazon storefront
+            integration, blog, recipes, FAQ, reviews — which is how we learned to ship together before co-founding Bimi.
+          </p>
+          <ul class="kv-list">
+            <li><span class="kv-k">PRODUCTS</span><span class="kv-v">Peanut butter (smooth · crunchy · 200 g / 500 g) · Cashew butter (silky · 200 g) · Almond butter (smooth · 200 g) · Trio gift pack</span></li>
+            <li><span class="kv-k">PRICE</span><span class="kv-v">₹135 – ₹425</span></li>
+            <li><span class="kv-k">CUSTOMERS</span><span class="kv-v">~500 and growing</span></li>
+            <li><span class="kv-k">COMPLIANCE</span><span class="kv-v">FSSAI-certified</span></li>
+            <li><span class="kv-k">LIVE ON</span><span class="kv-v">saajafoods.com · Amazon (Blinkit + Swiggy Instamart launches in progress)</span></li>
+          </ul>
+        </div>
+
+        <!-- Product carousel -->
+        <h3 class="sub-h3 reveal">The lineup</h3>
+
+        <div class="carousel carousel-photo" data-carousel data-carousel-name="saaja-products" tabindex="0">
+          <div class="carousel-viewport">
+            <div class="carousel-track">
+              <figure class="photo-slide">
+                <img src="assets/photos/saaja/smooth-peanut-butter-200g-main.jpg" alt="Saaja smooth peanut butter, 200 g" loading="lazy">
+                <figcaption><span>PEANUT</span> Smooth peanut butter · 200 g.</figcaption>
+              </figure>
+              <figure class="photo-slide">
+                <img src="assets/photos/saaja/crunchy-peanut-butter-500g-main.jpg" alt="Saaja crunchy peanut butter, 500 g" loading="lazy">
+                <figcaption><span>PEANUT</span> Crunchy peanut butter · 500 g.</figcaption>
+              </figure>
+              <figure class="photo-slide">
+                <img src="assets/photos/saaja/silky-cashew-butter-200g-main.jpg" alt="Saaja silky cashew butter, 200 g" loading="lazy">
+                <figcaption><span>CASHEW</span> Silky cashew butter · 200 g.</figcaption>
+              </figure>
+              <figure class="photo-slide">
+                <img src="assets/photos/saaja/smooth-almond-butter-200g-main.jpg" alt="Saaja smooth almond butter, 200 g" loading="lazy">
+                <figcaption><span>ALMOND</span> Smooth almond butter · 200 g.</figcaption>
+              </figure>
+              <figure class="photo-slide">
+                <img src="assets/photos/saaja/smooth-trio-pack-main.jpg" alt="Saaja trio pack — peanut, cashew, almond" loading="lazy">
+                <figcaption><span>TRIO PACK</span> All three jars together.</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn" data-carousel-prev aria-label="Previous">←</button>
+            <div class="carousel-dots" data-carousel-dots></div>
+            <button class="carousel-btn" data-carousel-next aria-label="Next">→</button>
+          </div>
+        </div>
+
+        <h3 class="sub-h3 reveal">Available on</h3>
+        <div class="marketplaces reveal">
+          <a href="https://www.saajafoods.com" target="_blank" rel="noopener" class="marketplace-tile">
+            <span class="brand-logo brand-logo-md"><img src="assets/logos/saaja.svg" alt="Saaja Foods" loading="lazy"></span>
+            <span>saajafoods.com</span>
+          </a>
+          <span class="marketplace-tile">
+            <span class="brand-logo brand-logo-md"><img src="assets/logos/amazon.svg" alt="Amazon" loading="lazy"></span>
+            <span>Amazon · Live</span>
+          </span>
+          <span class="marketplace-tile">
+            <span class="brand-logo brand-logo-md"><img src="assets/logos/blinkit.svg" alt="Blinkit" loading="lazy"></span>
+            <span>Blinkit · Launching</span>
+          </span>
+          <span class="marketplace-tile">
+            <span class="brand-logo brand-logo-md"><img src="assets/logos/swiggy-instamart.svg" alt="Swiggy Instamart" loading="lazy"></span>
+            <span>Swiggy Instamart · Launching</span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         04 — MOUNTAINS & TRAVEL
+         ============================================================ -->
+    <section id="mountains" class="section section-alt">
+      <div class="container">
+        <div class="section-label reveal"><span>04</span><span class="line"></span><span>MOUNTAINS</span></div>
+        <h2 class="section-h2 reveal">Mountains &amp; travel</h2>
+
+        <div class="prose reveal">
+          <p class="lead">
+            Outside work, I'm a mountaineer, trekker, and travel enthusiast.
+          </p>
+          <p class="muted">
+            <em>Specific routes, summits, and travel photos coming soon — Garvika will share details and pictures shortly.</em>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         05 — CONTACT
+         ============================================================ -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-label reveal"><span>05</span><span class="line"></span><span>CONTACT</span></div>
+        <h2 class="section-h2 reveal">Let's talk.</h2>
+
+        <ul class="contact-list reveal">
+          <li>
+            <span class="contact-label">EMAIL</span>
+            <a class="magnetic" href="mailto:hello@saajafoods.com">hello@saajafoods.com</a>
+          </li>
+          <li>
+            <span class="contact-label">LINKEDIN</span>
+            <a class="magnetic" href="https://www.linkedin.com/in/garvikabansal/" target="_blank" rel="noopener">linkedin.com/in/garvikabansal ↗</a>
+          </li>
+          <li>
+            <span class="contact-label">SAAJA FOODS</span>
+            <a class="magnetic" href="https://www.saajafoods.com" target="_blank" rel="noopener">saajafoods.com ↗</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-row">
+      <span>© Garvika Bansal · Hosted on GitHub Pages</span>
+      <span class="muted">Press <kbd>?</kbd> for shortcuts · <kbd>T</kbd> theme · <kbd>⌘K</kbd> palette</span>
+    </div>
+  </footer>
+
+  <!-- COMMAND PALETTE -->
+  <div id="palette" class="overlay" aria-hidden="true">
+    <div class="palette-card" role="dialog" aria-modal="true" aria-label="Command palette">
+      <div class="palette-input-row">
+        <span class="palette-prompt">&gt;</span>
+        <input id="palette-input" type="text" autocomplete="off" spellcheck="false" placeholder="Type to navigate · index · work · education · saaja · mountains · contact">
+        <button class="palette-close" aria-label="Close" data-overlay-close>ESC</button>
+      </div>
+      <ul id="palette-results" class="palette-results"></ul>
+      <div class="palette-foot muted">
+        <span>↑↓ navigate</span><span>↵ select</span><span>esc close</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- SHORTCUTS -->
+  <div id="shortcuts" class="overlay" aria-hidden="true">
+    <div class="palette-card" role="dialog" aria-modal="true" aria-label="Keyboard shortcuts">
+      <div class="palette-input-row">
+        <span class="palette-prompt">?</span>
+        <span style="flex:1">KEYBOARD SHORTCUTS</span>
+        <button class="palette-close" aria-label="Close" data-overlay-close>ESC</button>
+      </div>
+      <ul class="shortcut-list">
+        <li><kbd>T</kbd><span>Toggle light / dark theme</span></li>
+        <li><kbd>⌘</kbd><kbd>K</kbd><span>Open command palette</span></li>
+        <li><kbd>/</kbd><span>Open command palette</span></li>
+        <li><kbd>?</kbd><span>This overlay</span></li>
+        <li><kbd>ESC</kbd><span>Close any overlay</span></li>
+        <li><kbd>←</kbd><kbd>→</kbd><span>Navigate focused carousel</span></li>
+        <li><kbd>G</kbd><kbd>I</kbd><span>Jump to Index</span></li>
+        <li><kbd>G</kbd><kbd>W</kbd><span>Jump to Work</span></li>
+        <li><kbd>G</kbd><kbd>E</kbd><span>Jump to Education</span></li>
+        <li><kbd>G</kbd><kbd>S</kbd><span>Jump to Saaja Foods</span></li>
+        <li><kbd>G</kbd><kbd>M</kbd><span>Jump to Mountains</span></li>
+        <li><kbd>G</kbd><kbd>C</kbd><span>Jump to Contact</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
