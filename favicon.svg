@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="10" fill="#FF385C"/>
+  <circle cx="32" cy="13" r="5" fill="#FFB400"/>
+  <text x="50%" y="62%" text-anchor="middle" dominant-baseline="central"
+        font-family="'Plus Jakarta Sans', 'Space Mono', ui-sans-serif, system-ui, sans-serif"
+        font-weight="800" font-size="40" fill="#FFFFFF">G</text>
+</svg>
