@@ -38,8 +38,8 @@ strong { font-weight: 700; }
   --muted: #7e7a73;
   --line: #dcd6c4;
   --line-soft: #e7e2d3;
-  --accent: #3a8a8a;
-  --accent-soft: rgba(58, 138, 138, 0.13);
+  --accent: #E8A317;
+  --accent-soft: rgba(232, 163, 23, 0.16);
   --card: #ffffff;
   --shadow: 0 1px 0 var(--line);
   --max: 1100px;
@@ -48,16 +48,16 @@ strong { font-weight: 700; }
 }
 
 [data-theme="dark"] {
-  --bg: #0d1716;
-  --bg-alt: #121d1c;
+  --bg: #131310;
+  --bg-alt: #1a1812;
   --fg: #f0ede6;
   --fg-soft: #c8c5be;
   --muted: #6b7672;
-  --line: #22302e;
-  --line-soft: #1a2625;
-  --accent: #7fcaca;
-  --accent-soft: rgba(127, 202, 202, 0.16);
-  --card: #16201f;
+  --line: #2a2620;
+  --line-soft: #1f1d18;
+  --accent: #F5C84A;
+  --accent-soft: rgba(245, 200, 74, 0.18);
+  --card: #1d1a14;
   --shadow: 0 1px 0 var(--line);
 }
 
@@ -1337,4 +1337,208 @@ h2 .brand-logo, h3 .brand-logo { margin-bottom: 2px; }
   }
   .marquee-track { animation: none; }
   .reveal { opacity: 1; transform: none; }
+}
+
+/* ============================================================
+   ADDITIVE UTILITIES — added for content revamp
+   Status chips, venture cards, trek grid, off-duty grid, photo strip.
+   All additive — does not modify any existing rule.
+   ============================================================ */
+
+/* ---------- Status chips (pill badges) ---------- */
+.status-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+.status-chip.is-warm {
+  background: var(--accent-soft);
+  border-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  color: var(--accent);
+}
+.status-chip.is-cool {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--muted);
+}
+.awards-line {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  margin-top: 12px;
+  font-size: 13px;
+}
+.awards-line .muted { font-size: 12px; }
+
+/* ---------- Venture cards (BIMI · Saaja in Ventures) ---------- */
+.venture-card {
+  margin-top: 28px;
+  padding: 28px;
+}
+.venture-card:first-of-type { margin-top: 8px; }
+.venture-head {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start;
+  gap: 16px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 18px;
+}
+.venture-head-left {
+  display: flex; flex-direction: column; gap: 10px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.venture-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  display: flex; align-items: center; flex-wrap: wrap; gap: 8px;
+}
+.venture-title .role-level { font-size: 0.7em; font-weight: 400; }
+.venture-featured {
+  border-top: 3px solid var(--accent);
+  background: linear-gradient(180deg,
+    color-mix(in srgb, var(--accent-soft) 60%, var(--card)) 0%,
+    var(--card) 90px);
+}
+.venture-featured .venture-title { font-size: 1.7rem; }
+.venture-links {
+  margin-top: 22px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+  font-size: 14px;
+}
+.cycle-sync-line {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  font-size: 14px;
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.cycle-sync-line em { font-style: italic; color: var(--fg-soft); }
+.cycle-sync-line strong { color: var(--fg); }
+.venture-card .carousel,
+.venture-card .marketplaces,
+.venture-card .photo-strip { margin-top: 14px; }
+.venture-card .sub-h3 { margin-top: 32px; }
+
+/* ---------- Trek grid + cards ---------- */
+.trek-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+.trek-card {
+  padding: 22px;
+  position: relative;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.trek-card .trek-num {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+  color: var(--accent);
+}
+.trek-card h4 {
+  font-size: 1.05rem; font-weight: 700;
+  line-height: 1.35;
+  margin: 0;
+}
+.trek-card h4 .role-level { font-size: 0.78em; font-weight: 400; }
+.trek-card .trek-stats {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed var(--line);
+  margin-bottom: 4px;
+}
+.trek-card .trek-stats em { font-style: italic; }
+.trek-card p { font-size: 14px; color: var(--fg-soft); }
+
+/* ---------- Next-target line ---------- */
+.next-target {
+  display: flex; align-items: center; gap: 14px;
+  margin: 28px 0 12px;
+  padding: 14px 18px;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--accent-soft) 30%, transparent);
+  font-size: 14px;
+}
+
+/* ---------- Off-duty grid (Dodo + half-marathon) ---------- */
+.offduty-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+.offduty-card {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.offduty-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+.offduty-card figcaption {
+  padding: 14px 18px 16px;
+  display: flex; flex-direction: column; gap: 4px;
+  border-top: 1px solid var(--line);
+  background: var(--card);
+}
+.offduty-card figcaption strong { font-size: 14px; }
+.offduty-card figcaption .muted { font-size: 12px; }
+
+/* ---------- Photo strip (Saaja activation row) ---------- */
+.photo-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+.photo-strip figure {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card);
+}
+.photo-strip figure img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+.photo-strip figcaption {
+  padding: 10px 14px 12px;
+  font-size: 12px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  line-height: 1.5;
+}
+
+/* ---------- Small responsive nudges for the new pieces ---------- */
+@media (max-width: 720px) {
+  .venture-card { padding: 22px 18px; }
+  .venture-featured .venture-title { font-size: 1.35rem; }
+  .venture-title { font-size: 1.2rem; }
+  .next-target { flex-direction: column; align-items: flex-start; }
+  .offduty-card img { height: 240px; }
+  .photo-strip figure img { height: 200px; }
+}
+
+/* ---------- Bimi brand color — H1 "Bimi" word in red ---------- */
+.hero-h1 em {
+  color: #FF385C;
+  font-style: normal;
+  font-weight: 700;
 }

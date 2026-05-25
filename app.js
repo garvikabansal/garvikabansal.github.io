@@ -93,6 +93,7 @@
       { text: 'arming custom cursor',       cls: 'is-ok' },
       { text: 'warming click sounds',       cls: 'is-ok' },
       { text: 'calibrating magnets',        cls: 'is-ok' },
+      { text: 'connecting to kitchen',      cls: 'is-ok' },
       { text: 'compiling carousels',        cls: 'is-ok' },
       { text: 'loading keyboard bindings',  cls: 'is-ok' },
       { text: 'ready to ship.',             cls: 'is-rdy' },
@@ -100,11 +101,11 @@
 
     const taglines = [
       'CALIBRATING REALITY',
+      'COORDINATING WITH COOK',
+      'STOCKING THE KITCHEN',
       'TIGHTENING BOLTS',
-      'STRETCHING PIXELS',
-      'BRIBING THE GPU',
       'INFLATING MARQUEE',
-      'HYDRATING DOTS',
+      'PLANNING THE WEEK',
       'CHARMING COOKIES',
       'TUNING THE ENGINE',
     ];
@@ -531,8 +532,8 @@
      RIGHT-RAIL SECTION INDICATOR
   ========================================================= */
   const rail = () => {
-    const sections = ['index', 'work', 'edu', 'saaja', 'mountains', 'contact'];
-    const labels   = { index: 'INDEX', work: 'WORK', edu: 'EDUCATION', saaja: 'SAAJA FOODS', mountains: 'MOUNTAINS', contact: 'CONTACT' };
+    const sections = ['index', 'work', 'ventures', 'edu', 'mountains', 'contact'];
+    const labels   = { index: 'INDEX', work: 'WORK', ventures: 'VENTURES', edu: 'EDUCATION', mountains: 'MOUNTAINS', contact: 'CONTACT' };
     const wrap = document.createElement('nav');
     wrap.className = 'rail';
     wrap.setAttribute('aria-label', 'Section indicator');
@@ -617,13 +618,14 @@
   const paletteCmds = [
     { id: 'index',     label: 'Go to · 00 / INDEX',       action: () => location.hash = '#index' },
     { id: 'work',      label: 'Go to · 01 / WORK',        action: () => location.hash = '#work' },
-    { id: 'edu',       label: 'Go to · 02 / EDUCATION',   action: () => location.hash = '#edu' },
-    { id: 'saaja',     label: 'Go to · 03 / SAAJA FOODS', action: () => location.hash = '#saaja' },
+    { id: 'ventures',  label: 'Go to · 02 / VENTURES',    action: () => location.hash = '#ventures' },
+    { id: 'edu',       label: 'Go to · 03 / EDUCATION',   action: () => location.hash = '#edu' },
     { id: 'mountains', label: 'Go to · 04 / MOUNTAINS',   action: () => location.hash = '#mountains' },
     { id: 'contact',   label: 'Go to · 05 / CONTACT',     action: () => location.hash = '#contact' },
     { id: 'theme',     label: 'Toggle · Light / Dark theme', action: null /* wired later */ },
     { id: 'mute',      label: 'Toggle · Click sounds (mute)', action: null },
     { id: 'shortcuts', label: 'Open · Keyboard shortcuts',    action: null },
+    { id: 'bimi',      label: 'Open · Bimi',       action: () => open('https://trybimi.in', '_blank') },
     { id: 'linkedin',  label: 'Open · LinkedIn',   action: () => open('https://www.linkedin.com/in/garvikabansal/', '_blank') },
     { id: 'website',   label: 'Open · Saaja Foods', action: () => open('https://www.saajafoods.com', '_blank') },
   ];
@@ -753,7 +755,7 @@
       const now = performance.now();
       if (e.key.toLowerCase() === 'g') { lastKey = 'g'; lastTime = now; return; }
       if (lastKey === 'g' && (now - lastTime) < 1500) {
-        const map = { i: 'index', w: 'work', e: 'edu', s: 'saaja', m: 'mountains', c: 'contact' };
+        const map = { i: 'index', w: 'work', v: 'ventures', e: 'edu', m: 'mountains', c: 'contact' };
         const target = map[e.key.toLowerCase()];
         if (target) {
           e.preventDefault();
@@ -766,7 +768,7 @@
 
       // easter egg buffer
       buffer = (buffer + e.key.toLowerCase()).slice(-20);
-      if (buffer.endsWith('saaja')) {
+      if (buffer.endsWith('bimi') || buffer.endsWith('saaja')) {
         triggerFlash();
         Sound.whoosh();
         buffer = '';
